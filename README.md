@@ -20,7 +20,15 @@ This project is a simple example of how to create a standalone ImGui windowed ap
 Follow the instructions below to build the project on Arch Linux:
 
 ```bash
+# Clone the repository
+git clone https://github.com/k4yt3x/imgui-standalone-opengl.git
+cd imgui-standalone-opengl
+git submodule update --init --recursive
+
+# Install dependencies
 pacman -Sy mesa libglvnd glfw
+
+# Build the project
 cmake -S . -B build
 cmake --build build
 ```
