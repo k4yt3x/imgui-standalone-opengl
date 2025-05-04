@@ -70,6 +70,7 @@ int main() {
     float slider_value = 0.0f;
     int counter = 0;
     bool show_floating_window = false;
+    bool show_demo_window = false;
 
     // FPS variables
     double fps = 0.0f;
@@ -158,6 +159,9 @@ int main() {
 
                 // Checkbox
                 ImGui::Checkbox("Open a floating window", &show_floating_window);
+
+                // Demo window
+                ImGui::Checkbox("Show demo window", &show_demo_window);
             } else if (selected_tab == Tab::Tab1) {
                 ImGui::Text("This is content for Tab 1.");
             } else if (selected_tab == Tab::Tab2) {
@@ -177,6 +181,11 @@ int main() {
                 "Vestibulum ultrices metus non sapien malesuada, quis tempus magna placerat."
             );
             ImGui::End();
+        }
+
+        // Demo window
+        if (show_demo_window) {
+            ImGui::ShowDemoWindow(&show_demo_window);
         }
 
         // Rendering

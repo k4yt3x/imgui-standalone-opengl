@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.11 FATAL_ERROR)
-project(imgui-standalone-opengl VERSION 1.0.0 LANGUAGES CXX)
+project(imgui-glfw-opengl3 VERSION 1.0.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,24 +19,25 @@ set(IMGUI_SOURCES
     ${IMGUI_DIR}/imgui_draw.cpp
     ${IMGUI_DIR}/imgui_tables.cpp
     ${IMGUI_DIR}/imgui_widgets.cpp
+    ${IMGUI_DIR}/imgui_demo.cpp
 
     # Backends for GLFW and OpenGL3
     ${IMGUI_DIR}/backends/imgui_impl_glfw.cpp
     ${IMGUI_DIR}/backends/imgui_impl_opengl3.cpp
 )
 
-add_executable(imgui-standalone-opengl
+add_executable(imgui-glfw-opengl3
     src/main.cpp
     ${IMGUI_SOURCES}
 )
 
-target_include_directories(imgui-standalone-opengl PRIVATE
+target_include_directories(imgui-glfw-opengl3 PRIVATE
     ${IMGUI_DIR}
     ${IMGUI_DIR}/backends
 )
 
 # Link all required libraries
-target_link_libraries(imgui-standalone-opengl PRIVATE
+target_link_libraries(imgui-glfw-opengl3 PRIVATE
     OpenGL::GL
     glfw
 )
